@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RateCalculator", "RateCalculator\RateCalculator.csproj", "{847C9DB1-4B3C-4A5B-8A59-8C659B674802}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quote", "Quote\Quote.csproj", "{3F5CB69F-FA46-4301-A7FE-5674DEB04EAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quote.Tests", "Quote.Tests\Quote.Tests.csproj", "{49162D9B-9CDD-4A81-8ABE-88C3DC4D38D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{847C9DB1-4B3C-4A5B-8A59-8C659B674802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{847C9DB1-4B3C-4A5B-8A59-8C659B674802}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{847C9DB1-4B3C-4A5B-8A59-8C659B674802}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{847C9DB1-4B3C-4A5B-8A59-8C659B674802}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F5CB69F-FA46-4301-A7FE-5674DEB04EAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F5CB69F-FA46-4301-A7FE-5674DEB04EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F5CB69F-FA46-4301-A7FE-5674DEB04EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F5CB69F-FA46-4301-A7FE-5674DEB04EAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49162D9B-9CDD-4A81-8ABE-88C3DC4D38D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49162D9B-9CDD-4A81-8ABE-88C3DC4D38D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49162D9B-9CDD-4A81-8ABE-88C3DC4D38D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49162D9B-9CDD-4A81-8ABE-88C3DC4D38D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
