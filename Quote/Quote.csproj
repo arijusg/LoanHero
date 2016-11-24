@@ -52,6 +52,7 @@
     <Compile Include="OutputGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuoteGenerator.cs" />
     <Compile Include="TotalPaymentCalculator.cs" />
   </ItemGroup>
   <ItemGroup>
