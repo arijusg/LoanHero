@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using NUnit.Framework;
+using Quote.Models;
 
-namespace Quote.Tests
+namespace Quote.Tests.Unit
 {
     public class LenderDataReaderTests
     {

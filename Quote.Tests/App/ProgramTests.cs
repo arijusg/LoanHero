@@ -71,7 +71,7 @@ namespace Quote.Tests.App
         }
 
         [Test]
-        public void LoanAmountMazimum15000()
+        public void LoanAmountMaximum15000()
         {
             int loanAmount = 20000;
             string consoleOutput = GetOutputFromTheApp(new[] { loanAmount.ToString(), _testMarketCsvPath });
@@ -90,7 +90,7 @@ namespace Quote.Tests.App
             Assert.AreEqual(expectedOutput, consoleOutput);
         }
 
-        //TODO  Only testing happy path
+        //TODO Only testing happy path
         [Test]
         public void InvalidArgumentsEtc_WeAreTestingOnlyHappyPathForThisExercise()
         {
@@ -99,41 +99,5 @@ namespace Quote.Tests.App
             string expectedOutput = $"Application error :({Environment.NewLine}";
             Assert.AreEqual(expectedOutput, consoleOutput);
         }
-
-        //--36 months loans
-        //--arguments: market.csv, loan amount
-        //--combine porfolio with lowest loan rates
-        ////////Give back money to higer rate lenders first? or all together
-
-        //--provide details monthly repayment and repayent amount
-        //--repayment amounts should be 2 decimals
-        //--rates of the load 1 decimal
-        //--loan amount £100 increments minimum 1000, max 15000 inclusive
-        //--If not posible to quote, inform : that it is not possible to provide a quote at that time.
-        //--monthly compounding interest
-
-        //output
-        /*
-                cmd> [application]
-                [market_file]
-                [loan_amount]
-                Requested amount: £XXXX
-                Rate: X.X%
-            Monthly repayment: £XXXX.XX
-            Total repayment: £XXXX.XX
-
-            */
-
-        /* 
-         Lender,Rate,Available
-Bob,0.075,640
-Jane,0.069,480
-Fred,0.071,520
-Mary,0.104,170
-John,0.081,320
-Dave,0.074,140
-Angela,0.071,60
-
-         */
     }
 }

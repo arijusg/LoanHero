@@ -1,4 +1,4 @@
-﻿namespace Quote
+﻿namespace Quote.Models
 {
     public class LoanQuote
     {
@@ -10,10 +10,11 @@
             TotalRepayment = totalRepayment;
         }
 
-        public int RequestedAmount { get; private set; }
-        public decimal InterestRate { get; private set; }
-        public decimal MonthlyRepayment { get; private set; }
-        public decimal TotalRepayment { get; private set; }
+        public int RequestedAmount { get; }
+        public decimal InterestRate { get; }
+        public decimal MonthlyRepayment { get; }
+        public decimal TotalRepayment { get; }
+
         public override string ToString()
         {
             return

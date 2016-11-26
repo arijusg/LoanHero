@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Quote.Calculators;
+using Quote.Models;
+using Quote.Output;
 
 namespace Quote
 {
@@ -10,85 +13,86 @@ namespace Quote
             try
             {
                 //TODO validate
-                string marketPath = args[1];
+                string lenderCsvPath = args[1];
                 int amountToBorrow = Convert.ToInt32(args[0]);
 
-               // GenerateQuote(amountToBorrow, marketPath);
-                var generator = ComposeGenerator();
-                generator.GenerateQuote(amountToBorrow, marketPath);
+                if (!IsAmountValid(amountToBorrow)) return;
 
-                Console.ReadLine();
+                int defaultLoanTermInMonths = 36;
+
+                var quote = GenerateQuote(amountToBorrow, defaultLoanTermInMonths, lenderCsvPath);
+
+                if (IsQuoteValid(amountToBorrow, quote))
+                {
+                    PrintQuote(quote);
+                }
+                else
+                {
+                    Console.WriteLine("It is not possible to provide a quote at this time");
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Application error :(");
             }
+            Console.ReadLine();
         }
 
-        private static QuoteGenerator ComposeGenerator()
+        private static bool IsAmountValid(int loanAmount)
         {
-            Action<string> printText = Console.WriteLine;
-
-            return new QuoteGenerator(printText);
+            if (loanAmount < 100)
+            {
+                Console.WriteLine("The minimum amount you can borrow is £1000");
+                return false;
+            }
+            if (loanAmount > 15000)
+            {
+                Console.WriteLine("The maximum amount you can borrow is £15000");
+                return false;
+            }
+            if (loanAmount % 100 > 0)
+            {
+                Console.WriteLine("The amount you wish to borrow should be in increments of £100");
+                return false;
+            }
+            return true;
         }
 
-        //private static void GenerateQuote(int amountToBorrow, string marketPath)
-        //{
-        //    if (!IsAmountValid(amountToBorrow)) return;
+        private static LoanQuote GenerateQuote(int amountToBorrow, int months, string marketPath)
+        {
+            var lenders = GetLenders(marketPath);
 
-        //    var lenders = GetLenders(marketPath);
+            return GetQuote(amountToBorrow, months, lenders);
+        }
 
-        //    var quote = new LoanCalculator(lenders);
-        //    var loanQuote = quote.Calculate(amountToBorrow);
+        private static List<Lender> GetLenders(string lenderListPath)
+        {
+            var lendersLoader = new LenderDataReader();
+            return lendersLoader.Read(lenderListPath);
+        }
 
-        //    if (IsQuoteValid(amountToBorrow, loanQuote))
-        //    {
-        //        PrintQuote(loanQuote);
-        //    }
-        //}
+        private static LoanQuote GetQuote(int amountToBorrow, int months, List<Lender> lenders)
+        {
+            var quote = new LoanCalculator(lenders);
+            return quote.Calculate(amountToBorrow, months);
+        }
 
-        //private static void PrintQuote(LoanQuote quote)
-        //{
-        //    var outputGenerator = new OutputGenerator();
-        //    string output = outputGenerator.Generate(quote);
-        //    Console.WriteLine(output);
-        //}
+        private static bool IsQuoteValid(int loanAmount, LoanQuote quote)
+        {
+            if (loanAmount != quote.RequestedAmount)
+            {
 
-        //private static List<Lender> GetLenders(string lenderListPath)
-        //{
-        //    var lendersLoader = new LenderDataReader();
-        //    return lendersLoader.Read(lenderListPath);
-        //}
+                return false;
+            }
+            return true;
+        }
 
-        //private static bool IsAmountValid(int loanAmount)
-        //{
-        //    if (loanAmount < 100)
-        //    {
-        //        Console.WriteLine("The minimum amount you can borrow is £1000");
-        //        return false;
-        //    }
-        //    if (loanAmount > 15000)
-        //    {
-        //        Console.WriteLine("The maximum amount you can borrow is £15000");
-        //        return false;
-        //    }
-        //    if (loanAmount % 100 > 0)
-        //    {
-        //        Console.WriteLine("The amount you wish to borrow should be in increments of £100");
-        //        return false;
-        //    }
-        //    return true;
-        //}
-
-        //private static bool IsQuoteValid(int loanAmount, LoanQuote quote)
-        //{
-        //    if (loanAmount != quote.RequestedAmount)
-        //    {
-        //        Console.WriteLine("It is not possible to provide a quote at this time");
-        //        return false;
-        //    }
-        //    return true;
-        //}
+        private static void PrintQuote(LoanQuote quote)
+        {
+            var outputGenerator = new OutputGenerator();
+            string output = outputGenerator.Generate(quote);
+            Console.WriteLine(output);
+        }
     }
 
 }

@@ -1,6 +1,7 @@
 ﻿using System.Text;
+using Quote.Models;
 
-namespace Quote
+namespace Quote.Output
 {
     public class OutputGenerator
     {

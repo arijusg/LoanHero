@@ -45,12 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\ProgramTests.cs" />
-    <Compile Include="InterestRateCalculatorTests.cs" />
-    <Compile Include="LenderDataReaderTests.cs" />
-    <Compile Include="LoanCalculatorTests.cs" />
-    <Compile Include="MonthlyPaymentCalculatorTests.cs" />
+    <Compile Include="Unit\InterestRateCalculatorTests.cs" />
+    <Compile Include="Unit\LenderDataReaderTests.cs" />
+    <Compile Include="Unit\LoanCalculatorTests.cs" />
+    <Compile Include="Unit\MonthlyPaymentCalculatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TotalPaymentCalculatorTests.cs" />
+    <Compile Include="Unit\TotalPaymentCalculatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\market.csv">
@@ -64,9 +64,7 @@
       <Name>Quote</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Unit\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

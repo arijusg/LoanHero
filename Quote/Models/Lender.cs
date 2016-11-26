@@ -1,6 +1,6 @@
-﻿namespace Quote
+﻿namespace Quote.Models
 {
-    public  class Lender
+    public class Lender
     {
         public Lender(string name, decimal interestRate, int availableCash)
         {
@@ -9,9 +9,9 @@
             AvailableCash = availableCash;
         }
 
-        public string Name { get; private set; }
-        public decimal InterestRate { get; private set; }
-        public int AvailableCash { get; private set; }
+        public string Name { get; }
+        public decimal InterestRate { get; }
+        public int AvailableCash { get; }
 
         public override string ToString()
         {

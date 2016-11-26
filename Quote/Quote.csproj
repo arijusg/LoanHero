@@ -43,17 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InterestRateCalculator.cs" />
-    <Compile Include="Lender.cs" />
-    <Compile Include="LenderDataReader.cs" />
-    <Compile Include="LoanCalculator.cs" />
-    <Compile Include="LoanQuote.cs" />
-    <Compile Include="MonthlyPaymentCalculator.cs" />
-    <Compile Include="OutputGenerator.cs" />
+    <Compile Include="Calculators\InterestRateCalculator.cs" />
+    <Compile Include="Models\Lender.cs" />
+    <Compile Include="Data\LenderDataReader.cs" />
+    <Compile Include="Calculators\LoanCalculator.cs" />
+    <Compile Include="Models\LoanLender.cs" />
+    <Compile Include="Models\LoanQuote.cs" />
+    <Compile Include="Calculators\MonthlyPaymentCalculator.cs" />
+    <Compile Include="Output\OutputGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuoteGenerator.cs" />
-    <Compile Include="TotalPaymentCalculator.cs" />
+    <Compile Include="Calculators\TotalRepaymentCalculator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

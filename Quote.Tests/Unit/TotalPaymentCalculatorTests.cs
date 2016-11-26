@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
+using Quote.Calculators;
 
-namespace Quote.Tests
+namespace Quote.Tests.Unit
 {
     [TestFixture]
     public class TotalPaymentCalculatorTests
@@ -12,10 +13,10 @@ namespace Quote.Tests
             decimal interestRate = 0.07M;
             int months = 36;
             var monthlyPayment = 30.88M;
-            var calculator = new TotalPaymentCalculator();
+            var calculator = new TotalRepaymentCalculator();
             var totalPayments = calculator.Calculate(monthlyPayment, loanAmount, interestRate, months);
 
-            Assert.AreEqual(1111.53M, decimal.Round(totalPayments, 2));
+            Assert.AreEqual(1111.53M, totalPayments);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
+using Quote.Calculators;
 
-namespace Quote.Tests
+namespace Quote.Tests.Unit
 {
     [TestFixture]
     public class MonthlyPaymentCalculatorTests
@@ -15,7 +16,7 @@ namespace Quote.Tests
 
             var monthlyPayment = calculator.Calculate(loanAmount, interestRate, months);
 
-            Assert.AreEqual(30.20, decimal.Round(monthlyPayment, 2)); //TODO Deal with leftover
+            Assert.AreEqual(30.20M, monthlyPayment);
         }
 
         [Test]
@@ -28,7 +29,7 @@ namespace Quote.Tests
 
             var monthlyPayment = calculator.Calculate(loanAmount, interestRate, months);
 
-            Assert.AreEqual(30.88M, decimal.Round(monthlyPayment, 2)); //TODO Deal with leftover
+            Assert.AreEqual(30.88M, monthlyPayment);
         }
 
         [Test]
@@ -41,10 +42,7 @@ namespace Quote.Tests
 
             var monthlyPayment = calculator.Calculate(loanAmount, interestRate, months);
 
-            Assert.AreEqual(85.61M, decimal.Round(monthlyPayment, 2)); //TODO Deal with leftover
+            Assert.AreEqual(85.61M, monthlyPayment);
         }
-
-
-       
     }
 }

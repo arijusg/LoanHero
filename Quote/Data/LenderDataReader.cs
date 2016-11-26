@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Quote.Models;
 
 namespace Quote
 {
@@ -15,7 +13,7 @@ namespace Quote
 
             using (var reader = new StreamReader(File.OpenRead(filePath)))
             {
-                reader.ReadLine(); //Skip first line
+                reader.ReadLine(); //TODO //Skip first line, validate
 
                 while (!reader.EndOfStream)
                 {
@@ -29,17 +27,6 @@ namespace Quote
                 }
                 return lenders;
             }
-            // var reader = new StreamReader(File.OpenRead(@"C:\test.csv"));
-            //List<string> listA = new List<string>();
-            //List<string> listB = new List<string>();
-            //while (!reader.EndOfStream)
-            //{
-            //    var line = reader.ReadLine();
-            //    var values = line.Split(';');
-
-            //    listA.Add(values[0]);
-            //    listB.Add(values[1]);
-            //}
         }
     }
 }

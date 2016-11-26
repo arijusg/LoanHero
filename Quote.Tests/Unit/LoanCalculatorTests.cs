@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
+using Quote.Calculators;
+using Quote.Models;
 
-namespace Quote.Tests
+namespace Quote.Tests.Unit
 {
     public class LoanCalculatorTests
     {
@@ -22,13 +24,12 @@ namespace Quote.Tests
         }
 
         [Test]
-        public void LoanCalculator()
+        public void CalculateLoan()
         {
             int amountToBorrow = 1000;
             var calculator = new LoanCalculator(_lenders);
-            LoanQuote quote = calculator.Calculate(amountToBorrow);
+            LoanQuote quote = calculator.Calculate(amountToBorrow, 36);
 
-            // var expectedQuote = new LoanQuote(1000, 0.07M, 30.78M, 1108.10M); //TODO Wrong example
             var expectedQuote = new LoanQuote(1000, 0.07M, 30.88M, 1111.53M);
             Assert.AreEqual(expectedQuote, quote);
         }

@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
+using Quote.Calculators;
+using Quote.Models;
 
-namespace Quote.Tests
+namespace Quote.Tests.Unit
 {
     [TestFixture]
     public class InterestRateCalculatorTests

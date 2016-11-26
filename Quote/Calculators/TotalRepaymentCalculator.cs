@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Quote
+namespace Quote.Calculators
 {
-    public class TotalPaymentCalculator
+    public class TotalRepaymentCalculator
     {
         public decimal Calculate(decimal monthlyPayment, int loanAmount, decimal interestRate, int months)
         {
