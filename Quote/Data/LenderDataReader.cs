@@ -13,7 +13,7 @@ namespace Quote
 
             using (var reader = new StreamReader(File.OpenRead(filePath)))
             {
-                reader.ReadLine(); //TODO //Skip first line, validate
+                reader.ReadLine(); //TODO Should validate first line as header
 
                 while (!reader.EndOfStream)
                 {
